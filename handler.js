@@ -1,6 +1,9 @@
 "use strict";
+const { tagEvent } = require("./serverless_sdk");
 
 module.exports.hello = async event => {
+  tagEvent("custom-tag", "hello world", { custom: { tag: "data" } });
+
   return {
     statusCode: 200,
     headers: {
